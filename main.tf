@@ -14,7 +14,18 @@ provider "aws" {
 resource "aws_instance" "dev_server"{
     ami = "ami-05ffe3c48a9991133"
     instance_type = "t3.micro"
+
+    user_data = <<-EOF
+            #!/bin/bash
+            yum update -y
+            yum install -y httpd
+            systemctl start httpd
+            systemctl enable httpd
+            echo "Hello from Terraform Web Server" > /var/www/html/index.html
+            EOF
+
+
     tags = { 
-        Name = "terraform-dev-server"
+        Name = "terraform-web-server"
     }
 }
