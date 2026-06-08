@@ -29,6 +29,10 @@ resource "aws_instance" "dev_server"{
             echo "Hello from Terraform Web Server" > /var/www/html/index.html
             EOF
 
+    key_name = aws_key_pair.dev_key.key_name
+    vpc_security_group_ids = [
+        aws_security_group.dev_sg.id
+        ]
 
     tags = { 
         Name = "terraform-web-server"
