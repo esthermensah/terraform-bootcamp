@@ -18,7 +18,7 @@ provider "aws" {
 
 resource "aws_instance" "dev_server"{
     ami = "ami-05ffe3c48a9991133"
-    instance_type = "t3.micro"
+    instance_type = var.instance_type
 
     key_name = aws_key_pair.dev_key.key_name
     vpc_security_group_ids = [
