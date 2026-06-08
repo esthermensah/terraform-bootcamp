@@ -2,6 +2,13 @@ variable "instance_type" {
     description = "EC2 intance type"
     type = string
     default = "t3.micro"
-
 }
+
+
+variable "region" {
+    description = "AWS region"
+    type = string
+    default = "us-east-1"
+}
+
 
