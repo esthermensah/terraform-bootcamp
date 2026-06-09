@@ -20,6 +20,9 @@ resource "aws_instance" "dev_server"{
     ami = "ami-05ffe3c48a9991133"
     instance_type = var.instance_type
 
+    subnet_id = aws_subnet.public.id
+
+
     key_name = aws_key_pair.dev_key.key_name
     vpc_security_group_ids = [
         aws_security_group.dev_sg.id
@@ -42,6 +45,7 @@ resource "aws_instance" "dev_server"{
 
 resource "aws_security_group" "dev_sg" {
     name = "terraform-dev-sg"
+    vpc_id = aws_vpc.main.id
     description = "allow SSH and HTTP traffic"
 
     ingress {
@@ -70,6 +74,34 @@ resource "aws_security_group" "dev_sg" {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
