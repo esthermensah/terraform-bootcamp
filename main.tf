@@ -49,11 +49,11 @@ resource "aws_security_group" "dev_sg" {
     description = "allow SSH and HTTP traffic"
 
     ingress {
-        description = "SSH"
+        description = "SSH from my IP address only"
         from_port = 22
         to_port = 22
         protocol = "tcp"
-        cidr_blocks = ["0.0.0.0/0"]
+        cidr_blocks = ["154.161.49.236/32"]
     }
 
      ingress {
