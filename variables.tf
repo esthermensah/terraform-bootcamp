@@ -12,3 +12,12 @@ variable "region" {
 }
 
 
+variable "az_a" {
+    description = "Availability Zone A"
+    default = "us-east-1a"
+}
+
+variable "az_b" {
+    description = "Availability Zone B"
+    default = "us-east-1b"
+}
