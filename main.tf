@@ -55,7 +55,7 @@ resource "aws_security_group" "dev_sg" {
         from_port = 22
         to_port = 22
         protocol = "tcp"
-        cidr_blocks = ["154.161.49.236/32"]
+        cidr_blocks =["154.161.1.123/32"]
     }
 
      ingress {
