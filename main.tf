@@ -19,7 +19,6 @@ provider "aws" {
 resource "aws_instance" "dev_server"{
     ami = "ami-05ffe3c48a9991133"
 
-terraform validate
     instance_type = var.instance_type
 
     subnet_id = aws_subnet.public_a.id
