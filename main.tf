@@ -1,10 +1,5 @@
 
 
- resource "aws_key_pair" "dev_key"{
-    key_name = "terraform-dev-key"
-    public_key = file("terraform-key.pub")
- }
-
 resource "aws_instance" "dev_server"{
     ami = "ami-05ffe3c48a9991133"
 
