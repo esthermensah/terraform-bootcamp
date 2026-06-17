@@ -1,15 +1,4 @@
-terraform{
-    required_providers {
-        aws = {
-            source = "hashicorp/aws"
-            version = "~> 6.0"
-        }
-    }
-}
 
-provider "aws" {
-    region = var.region
-}
 
  resource "aws_key_pair" "dev_key"{
     key_name = "terraform-dev-key"
