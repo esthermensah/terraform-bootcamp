@@ -29,7 +29,8 @@ resource "aws_route_table" "public_rt" {
 
 
 resource "aws_route_table_association" "public_a"{
-   subnet_id = module.vpc.public_subnet_a_id
+
+   subnet_id = aws_subnet.public_a.id
    route_table_id = aws_route_table.public_rt.id
 
 }

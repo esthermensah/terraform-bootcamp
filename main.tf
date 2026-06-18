@@ -11,7 +11,7 @@ resource "aws_instance" "dev_server" {
 
   instance_type = var.instance_type
 
-  subnet_id = aws_subnet.public_a.id
+  subnet_id = module.vpc.public_subnet_a_id
 
 
   key_name             = aws_key_pair.dev_key.key_name
