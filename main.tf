@@ -1,19 +1,25 @@
+module "vpc" {
+  source = "./modules/vpc"
+
+  az_a = var.az_a
+  az_b = var.az_b
+}
 
 
-resource "aws_instance" "dev_server"{
-    ami = "ami-05ffe3c48a9991133"
+resource "aws_instance" "dev_server" {
+  ami = "ami-05ffe3c48a9991133"
 
-    instance_type = var.instance_type
+  instance_type = var.instance_type
 
-    subnet_id = aws_subnet.public_a.id
+  subnet_id = aws_subnet.public_a.id
 
 
-    key_name = aws_key_pair.dev_key.key_name
-    iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
-    vpc_security_group_ids = [
-        aws_security_group.dev_sg.id
-        ]
-    user_data = <<-EOF
+  key_name             = aws_key_pair.dev_key.key_name
+  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
+  vpc_security_group_ids = [
+    aws_security_group.dev_sg.id
+  ]
+  user_data = <<-EOF
             #!/bin/bash
             yum update -y
             yum install -y httpd
@@ -23,8 +29,10 @@ resource "aws_instance" "dev_server"{
             EOF
 
 
-    tags = { 
-        Name = "terraform-web-server"
-    }
+  tags = {
+    Name = "terraform-web-server"
+  }
 
 }
+
+
