@@ -8,7 +8,7 @@ resource "aws_key_pair" "dev_key" {
 
 resource "aws_security_group" "dev_sg" {
   name        = "terraform-dev-sg"
-  vpc_id      = aws_vpc.main.id
+  vpc_id = module.vpc.vpc_id
   description = "allow SSH and HTTP traffic"
 
   ingress {
