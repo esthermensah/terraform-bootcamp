@@ -1,8 +1,8 @@
 output "public_ip" {
-  value = aws_instance.dev_server.public_ip
+  value = module.ec2.public_ip
 }
 
 output "public_dns" {
-  value = aws_instance.dev_server.public_dns
+  value = module.ec2.public_dns
 }
 
